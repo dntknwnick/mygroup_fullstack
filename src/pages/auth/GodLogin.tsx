@@ -93,13 +93,13 @@ export const GodLogin: React.FC = () => {
 
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+            <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3" style={{ lineHeight: '1.25' }}>
               <Zap className="text-yellow-400" size={28} />
               <span>God Mode Access</span>
             </h2>
-            <p className="text-gray-300 text-lg mb-2">{groupName}</p>
+            <p className="text-gray-300 text-lg mb-2" style={{ lineHeight: '1.5' }}>{groupName}</p>
             {subGroup !== 'default' && (
-              <p className="text-gray-400 text-sm">{subGroup}</p>
+              <p className="text-gray-400 text-sm" style={{ lineHeight: '1.5' }}>{subGroup}</p>
             )}
           </div>
 
@@ -120,7 +120,7 @@ export const GodLogin: React.FC = () => {
                 <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center shadow-lg">
                   <item.icon className="text-yellow-400" size={24} />
                 </div>
-                <p className="text-xs text-gray-400">{item.label}</p>
+                <p className="text-xs text-gray-400" style={{ lineHeight: '1.4' }}>{item.label}</p>
               </motion.div>
             ))}
           </div>
@@ -145,7 +145,7 @@ export const GodLogin: React.FC = () => {
                   placeholder="god@universe.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-12 pr-4 py-4 bg-white/5 border border-gray-700 rounded-xl text-white text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-gray-600 rounded-xl text-white text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent focus:bg-white/15 transition-all"
                   required
                 />
               </div>
@@ -160,7 +160,7 @@ export const GodLogin: React.FC = () => {
                   placeholder="••••••••••••"
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full pl-12 pr-4 py-4 bg-white/5 border border-gray-700 rounded-xl text-white text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-gray-600 rounded-xl text-white text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent focus:bg-white/15 transition-all"
                   required
                 />
               </div>
@@ -188,7 +188,7 @@ export const GodLogin: React.FC = () => {
           </form>
 
           <div className="mt-8 pt-8 border-t border-gray-700">
-            <p className="text-center text-sm text-gray-400 leading-relaxed">
+            <p className="text-center text-sm text-gray-400" style={{ lineHeight: '1.6' }}>
               Need standard access?{' '}
               <button
                 onClick={() => navigate('/')}
@@ -207,7 +207,7 @@ export const GodLogin: React.FC = () => {
           transition={{ delay: 0.6 }}
           className="mt-6 p-5 bg-red-500/10 border border-red-500/30 rounded-2xl text-center"
         >
-          <p className="text-red-400 text-sm font-medium flex items-center justify-center gap-2 leading-relaxed">
+          <p className="text-red-400 text-sm font-medium flex items-center justify-center gap-2" style={{ lineHeight: '1.5' }}>
             <Shield size={18} />
             <span>Unauthorized access is strictly prohibited</span>
           </p>

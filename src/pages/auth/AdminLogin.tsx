@@ -70,14 +70,14 @@ export const AdminLogin: React.FC = () => {
               <Shield className="text-white" size={32} />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-white leading-tight">My Group</h2>
-              <p className="text-base text-primary-200 mt-1">Admin Portal</p>
+              <h2 className="text-2xl font-bold text-white" style={{ lineHeight: '1.25' }}>My Group</h2>
+              <p className="text-base text-primary-200 mt-1" style={{ lineHeight: '1.5' }}>Admin Portal</p>
             </div>
           </div>
 
           {/* Tagline */}
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">Manage Your Empire</h1>
-          <p className="text-lg text-primary-100 mb-16 leading-relaxed">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6" style={{ lineHeight: '1.2' }}>Manage Your Empire</h1>
+          <p className="text-lg text-primary-100 mb-16" style={{ lineHeight: '1.6' }}>
             Centralized control for your entire multi-tenant ecosystem
           </p>
 
@@ -94,7 +94,7 @@ export const AdminLogin: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-lg">
                   <feature.icon size={24} className="text-white" />
                 </div>
-                <p className="text-base text-primary-100 pt-2 leading-relaxed">{feature.text}</p>
+                <p className="text-base text-primary-100 pt-2" style={{ lineHeight: '1.6' }}>{feature.text}</p>
               </motion.div>
             ))}
           </div>
@@ -103,16 +103,16 @@ export const AdminLogin: React.FC = () => {
           <div className="pt-12 border-t border-white/20">
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl font-bold text-white mb-2 leading-none">23+</div>
-                <div className="text-sm text-primary-200 leading-relaxed">Applications</div>
+                <div className="text-4xl font-bold text-white mb-2" style={{ lineHeight: '1' }}>23+</div>
+                <div className="text-sm text-primary-200" style={{ lineHeight: '1.5' }}>Applications</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-2 leading-none">9</div>
-                <div className="text-sm text-primary-200 leading-relaxed">User Roles</div>
+                <div className="text-4xl font-bold text-white mb-2" style={{ lineHeight: '1' }}>9</div>
+                <div className="text-sm text-primary-200" style={{ lineHeight: '1.5' }}>User Roles</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-2 leading-none">6</div>
-                <div className="text-sm text-primary-200 leading-relaxed">Login Types</div>
+                <div className="text-4xl font-bold text-white mb-2" style={{ lineHeight: '1' }}>6</div>
+                <div className="text-sm text-primary-200" style={{ lineHeight: '1.5' }}>Login Types</div>
               </div>
             </div>
           </div>

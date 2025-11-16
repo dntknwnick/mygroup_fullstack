@@ -104,8 +104,8 @@ export const GroupAdminLogin: React.FC = () => {
             >
               {group.logo}
             </motion.div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 leading-tight">{group.name}</h2>
-            <p className="text-base text-gray-600 leading-relaxed">{group.tagline}</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3" style={{ lineHeight: '1.25' }}>{group.name}</h2>
+            <p className="text-base text-gray-600" style={{ lineHeight: '1.6' }}>{group.tagline}</p>
           </div>
 
           {error && (

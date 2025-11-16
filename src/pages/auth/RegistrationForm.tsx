@@ -275,43 +275,43 @@ export const RegistrationForm: React.FC = () => {
               <div className="w-20 h-20 rounded-full bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Check className="text-white" size={40} />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">Review Your Information</h3>
-              <p className="text-base text-gray-600 leading-relaxed">Please verify all details before submitting</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2" style={{ lineHeight: '1.3' }}>Review Your Information</h3>
+              <p className="text-base text-gray-600" style={{ lineHeight: '1.6' }}>Please verify all details before submitting</p>
             </div>
 
             <div className="space-y-4">
               <div className="bg-gray-50 rounded-xl p-6">
-                <h5 className="text-lg font-semibold text-gray-900 mb-4 leading-tight">Account Information</h5>
+                <h5 className="text-lg font-semibold text-gray-900 mb-4" style={{ lineHeight: '1.4' }}>Account Information</h5>
                 <div className="space-y-2 text-sm">
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Username:</span> <span className="text-gray-900">{formData.username}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Email:</span> <span className="text-gray-900">{formData.email}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Username:</span> <span className="text-gray-900">{formData.username}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Email:</span> <span className="text-gray-900">{formData.email}</span></p>
                 </div>
               </div>
 
               <div className="bg-gray-50 rounded-xl p-6">
-                <h5 className="text-lg font-semibold text-gray-900 mb-4 leading-tight">Personal Information</h5>
+                <h5 className="text-lg font-semibold text-gray-900 mb-4" style={{ lineHeight: '1.4' }}>Personal Information</h5>
                 <div className="space-y-2 text-sm">
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Name:</span> <span className="text-gray-900">{formData.firstName} {formData.lastName}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Phone:</span> <span className="text-gray-900">{formData.phone}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Gender:</span> <span className="text-gray-900">{formData.gender}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Date of Birth:</span> <span className="text-gray-900">{formData.dob}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Name:</span> <span className="text-gray-900">{formData.firstName} {formData.lastName}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Phone:</span> <span className="text-gray-900">{formData.phone}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Gender:</span> <span className="text-gray-900">{formData.gender}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Date of Birth:</span> <span className="text-gray-900">{formData.dob}</span></p>
                 </div>
               </div>
 
               <div className="bg-gray-50 rounded-xl p-6">
-                <h5 className="text-lg font-semibold text-gray-900 mb-4 leading-tight">Location</h5>
+                <h5 className="text-lg font-semibold text-gray-900 mb-4" style={{ lineHeight: '1.4' }}>Location</h5>
                 <div className="space-y-2 text-sm">
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Country:</span> <span className="text-gray-900">{formData.country}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">State:</span> <span className="text-gray-900">{formData.state}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">District:</span> <span className="text-gray-900">{formData.district}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Country:</span> <span className="text-gray-900">{formData.country}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">State:</span> <span className="text-gray-900">{formData.state}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">District:</span> <span className="text-gray-900">{formData.district}</span></p>
                 </div>
               </div>
 
               <div className="bg-gray-50 rounded-xl p-6">
-                <h5 className="text-lg font-semibold text-gray-900 mb-4 leading-tight">Professional</h5>
+                <h5 className="text-lg font-semibold text-gray-900 mb-4" style={{ lineHeight: '1.4' }}>Professional</h5>
                 <div className="space-y-2 text-sm">
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Education:</span> <span className="text-gray-900">{formData.education}</span></p>
-                  <p className="flex justify-between leading-relaxed"><span className="text-gray-600">Profession:</span> <span className="text-gray-900">{formData.profession}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Education:</span> <span className="text-gray-900">{formData.education}</span></p>
+                  <p className="flex justify-between" style={{ lineHeight: '1.6' }}><span className="text-gray-600">Profession:</span> <span className="text-gray-900">{formData.profession}</span></p>
                 </div>
               </div>
             </div>
@@ -339,8 +339,8 @@ export const RegistrationForm: React.FC = () => {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3 leading-tight">Create Your Account</h2>
-          <p className="text-base text-gray-600 leading-relaxed">Join {groupName} community today</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3" style={{ lineHeight: '1.25' }}>Create Your Account</h2>
+          <p className="text-base text-gray-600" style={{ lineHeight: '1.6' }}>Join {groupName} community today</p>
         </div>
 
         {/* Progress Bar */}

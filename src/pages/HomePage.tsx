@@ -65,11 +65,11 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-12"
             >
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto" style={{ lineHeight: '1.2' }}>
                 One Platform, Infinite Possibilities
               </h2>
-              <p className="text-xl text-primary-100 max-w-2xl mx-auto mb-8">
-                Access 23+ premium applications with enterprise-grade security, 
+              <p className="text-xl text-primary-100 max-w-2xl mx-auto mb-8" style={{ lineHeight: '1.6' }}>
+                Access 23+ premium applications with enterprise-grade security,
                 seamless authentication, and powerful management tools.
               </p>
 
@@ -88,8 +88,8 @@ export const HomePage: React.FC = () => {
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-3xl lg:text-4xl text-white mb-1">{stat.value}</div>
-                    <div className="text-sm text-primary-200">{stat.label}</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-white mb-1" style={{ lineHeight: '1.2' }}>{stat.value}</div>
+                    <div className="text-sm text-primary-200" style={{ lineHeight: '1.4' }}>{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -135,8 +135,8 @@ export const HomePage: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">Browse Applications</h3>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2" style={{ lineHeight: '1.3' }}>Browse Applications</h3>
+              <p className="text-base text-gray-600" style={{ lineHeight: '1.6' }}>
                 {filteredApplications.length} {filteredApplications.length === 1 ? 'application' : 'applications'} available
               </p>
             </div>
@@ -194,8 +194,8 @@ export const HomePage: React.FC = () => {
             <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gray-100 mb-6">
               <Search size={48} className="text-gray-400" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">No applications found</h3>
-            <p className="text-base text-gray-600 mb-6 leading-relaxed">Try adjusting your search or filter criteria</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3" style={{ lineHeight: '1.3' }}>No applications found</h3>
+            <p className="text-base text-gray-600 mb-6" style={{ lineHeight: '1.6' }}>Try adjusting your search or filter criteria</p>
             <button
               onClick={() => {
                 setSearchQuery('');
