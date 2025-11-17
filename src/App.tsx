@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import { HomePage } from './pages/HomePage';
 import { AdminLogin } from './pages/auth/AdminLogin';
 import { GroupAdminLogin } from './pages/auth/GroupAdminLogin';
@@ -9,8 +10,9 @@ import { AdminDashboard } from './pages/dashboard/AdminDashboard';
 
 function App() {
   return (
-    <Router>
-      <Routes>
+    <AuthProvider>
+      <Router>
+        <Routes>
         {/* Home */}
         <Route path="/" element={<HomePage />} />
 
@@ -30,8 +32,9 @@ function App() {
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

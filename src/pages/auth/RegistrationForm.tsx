@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ProgressBar } from '../../components/ProgressBar';
@@ -22,9 +23,11 @@ const professions = ['Software Engineer', 'Designer', 'Manager', 'Teacher', 'Doc
 
 export const RegistrationForm: React.FC = () => {
   const navigate = useNavigate();
+  const { register } = useAuth();
   const { groupName = 'default' } = useParams();
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     username: '', email: '', password: '', confirmPassword: '',
     firstName: '', lastName: '', phone: '', displayName: '', gender: '', dob: '',
@@ -50,10 +53,19 @@ export const RegistrationForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     setLoading(true);
-    setTimeout(() => {
-      navigate(`/client-login/${groupName}`);
-    }, 2000);
+
+    try {
+      await register(formData);
+      // Navigation will be handled by AuthContext
+      navigate('/dashboard/admin');
+    } catch (err: any) {
+      setError(err.message || 'Registration failed. Please try again.');
+      setCurrentStep(1); // Go back to first step to show error
+    } finally {
+      setLoading(false);
+    }
   };
 
   const renderStep = () => {

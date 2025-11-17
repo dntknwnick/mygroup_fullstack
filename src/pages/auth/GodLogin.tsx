@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Crown, Mail, Lock, Shield, Zap, Star, ArrowLeft } from 'lucide-react';
@@ -7,8 +8,9 @@ import { motion } from 'motion/react';
 
 export const GodLogin: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const { groupName = 'default', subGroup = 'default' } = useParams();
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -17,14 +19,20 @@ export const GodLogin: React.FC = () => {
     setError('');
     setLoading(true);
 
-    setTimeout(() => {
-      if (formData.email && formData.password) {
-        navigate('/dashboard/admin');
-      } else {
-        setError('Invalid credentials');
-        setLoading(false);
-      }
-    }, 1500);
+    try {
+      await login('god', {
+        username: formData.username,
+        password: formData.password
+      }, {
+        groupName,
+        subGroup
+      });
+      navigate('/dashboard/admin');
+    } catch (err: any) {
+      setError(err.message || 'Login failed. Please check your credentials.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const particles = Array.from({ length: 20 }, (_, i) => ({
@@ -137,14 +145,14 @@ export const GodLogin: React.FC = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block mb-3 text-sm font-medium text-gray-300">God Email</label>
+              <label className="block mb-3 text-sm font-medium text-gray-300">Username</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                 <input
-                  type="email"
-                  placeholder="god@universe.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  type="text"
+                  placeholder="Enter your username"
+                  value={formData.username}
+                  onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                   className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-gray-600 rounded-xl text-white text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent focus:bg-white/15 transition-all"
                   required
                 />

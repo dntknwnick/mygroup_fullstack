@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Mail, Lock, Shield, Check, TrendingUp, Users, Globe, ArrowLeft } from 'lucide-react';
@@ -7,8 +8,9 @@ import { motion } from 'motion/react';
 
 export const AdminLogin: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
     rememberMe: false
   });
@@ -20,14 +22,19 @@ export const AdminLogin: React.FC = () => {
     setError('');
     setLoading(true);
 
-    setTimeout(() => {
-      if (formData.email && formData.password) {
-        navigate('/dashboard/admin');
-      } else {
-        setError('Please enter valid credentials');
-        setLoading(false);
-      }
-    }, 1500);
+    try {
+      await login('admin', {
+        username: formData.username,
+        password: formData.password,
+        rememberMe: formData.rememberMe
+      });
+      // Navigation will be handled by AuthContext
+      navigate('/dashboard/admin');
+    } catch (err: any) {
+      setError(err.message || 'Login failed. Please check your credentials.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const features = [
@@ -143,12 +150,12 @@ export const AdminLogin: React.FC = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <Input
-              label="Email Address"
-              type="email"
-              placeholder="admin@mygroup.com"
+              label="Username"
+              type="text"
+              placeholder="Enter your username"
               leftIcon={<Mail size={20} />}
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, username: e.target.value })}
               required
             />
 

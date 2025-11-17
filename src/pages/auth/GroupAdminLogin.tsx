@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Mail, Lock, ArrowLeft } from 'lucide-react';
@@ -45,8 +46,9 @@ const groupData: Record<string, any> = {
 
 export const GroupAdminLogin: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const { groupName = 'corporate' } = useParams();
-  const [formData, setFormData] = useState({ email: '', password: '', rememberMe: false });
+  const [formData, setFormData] = useState({ username: '', password: '', rememberMe: false });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -57,14 +59,20 @@ export const GroupAdminLogin: React.FC = () => {
     setError('');
     setLoading(true);
 
-    setTimeout(() => {
-      if (formData.email && formData.password) {
-        navigate('/dashboard/admin');
-      } else {
-        setError('Please enter valid credentials');
-        setLoading(false);
-      }
-    }, 1500);
+    try {
+      await login('group-admin', {
+        username: formData.username,
+        password: formData.password,
+        rememberMe: formData.rememberMe
+      }, {
+        groupName
+      });
+      navigate('/dashboard/admin');
+    } catch (err: any) {
+      setError(err.message || 'Login failed. Please check your credentials.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -120,12 +128,12 @@ export const GroupAdminLogin: React.FC = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <Input
-              label="Email Address"
-              type="email"
-              placeholder="Enter your email"
+              label="Username"
+              type="text"
+              placeholder="Enter your username"
               leftIcon={<Mail size={20} />}
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, username: e.target.value })}
               required
             />
 
